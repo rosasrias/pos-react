@@ -1,21 +1,30 @@
 import { GlobalStyles } from "./styles/GlobalStyles";
 import { MyRoutes } from "./routes/routes";
 import { Sidebar } from "./components/organismos/sidebar/Sidebar";
-import { styled } from "styled-components";
+import { styled, ThemeProvider } from "styled-components";
 import { Device } from "./styles/breakpoinst";
+import { useThemeStore } from "./store/ThemeStore";
+import { useState } from "react";
 
 function App() {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const { themeStyle } = useThemeStore();
   return (
-    <Container>
-      <GlobalStyles />
-      <section className="contentSidebar">
-        <Sidebar />
-      </section>
-      <section className="contentMenuambur">menu</section>
-      <section className="contentRouters">
-        <MyRoutes />
-      </section>
-    </Container>
+    <ThemeProvider theme={themeStyle}>
+      <Container>
+        <GlobalStyles />
+        <section className="contentSidebar">
+          <Sidebar
+            state={sidebarOpen}
+            setState={() => setSidebarOpen(!sidebarOpen)}
+          />
+        </section>
+        <section className="contentMenuambur">menu</section>
+        <section className="contentRouters">
+          <MyRoutes />
+        </section>
+      </Container>
+    </ThemeProvider>
   );
 }
 

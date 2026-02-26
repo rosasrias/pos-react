@@ -5,7 +5,5 @@ export function HomeTemplate() {
 }
 
 const Container = styled.div`
-  background-color: #333;
-  color: #fff;
-  padding: 20px;
+  height: 100vh;
 `;

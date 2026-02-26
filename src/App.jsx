@@ -11,7 +11,7 @@ function App() {
   const { themeStyle } = useThemeStore();
   return (
     <ThemeProvider theme={themeStyle}>
-      <Container>
+      <Container className={sidebarOpen ? "active" : ""}>
         <GlobalStyles />
         <section className="contentSidebar">
           <Sidebar
@@ -31,22 +31,23 @@ function App() {
 const Container = styled.div`
   display: grid;
   grid-template-columns: 1fr;
-  background-color: #333;
+  transition: 0.1s ease-in-out;
+  color: ${({ theme }) => theme.text};
   .contentSidebar {
     display: none;
-    background-color: rgba(78, 45, 45, 0.5);
   }
   .contentMenuambur {
     position: absolute;
-    background-color: rgba(45, 78, 45, 0.5);
   }
   .contentRouters {
-    background-color: rgba(45, 78, 76, 0.5);
     grid-column: 1;
     width: 100%;
   }
   @media ${Device.tablet} {
     grid-template-columns: 88px 1fr;
+    &.active {
+      grid-template-columns: 260px 1fr;
+    }
     .contentSidebar {
       display: initial;
     }

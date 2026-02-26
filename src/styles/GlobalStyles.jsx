@@ -6,5 +6,6 @@ export const GlobalStyles = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+    background-color: ${({ theme }) => theme.bgtotal};
     }
 `;

@@ -1,14 +1,20 @@
 import { GlobalStyles } from "./styles/GlobalStyles";
-import styled from "styled-components";
+import { MyRoutes } from "./routes/routes";
+import { Sidebar } from "./components/organismos/sidebar/Sidebar";
+import { styled } from "styled-components";
 import { Device } from "./styles/breakpoinst";
 
 function App() {
   return (
     <Container>
       <GlobalStyles />
-      <section className="contentSidebar">sidebar</section>
+      <section className="contentSidebar">
+        <Sidebar />
+      </section>
       <section className="contentMenuambur">menu</section>
-      <section className="contentRouters">routers</section>
+      <section className="contentRouters">
+        <MyRoutes />
+      </section>
     </Container>
   );
 }
@@ -21,20 +27,25 @@ const Container = styled.div`
     display: none;
     background-color: rgba(78, 45, 45, 0.5);
   }
-  .contentMenuambur{
+  .contentMenuambur {
     position: absolute;
     background-color: rgba(45, 78, 45, 0.5);
   }
-  .contentRouters{
+  .contentRouters {
     background-color: rgba(45, 78, 76, 0.5);
+    grid-column: 1;
+    width: 100%;
   }
   @media ${Device.tablet} {
     grid-template-columns: 88px 1fr;
     .contentSidebar {
       display: initial;
     }
-    .contentMenuambur{
+    .contentMenuambur {
       display: none;
+    }
+    .contentRouters {
+      grid-column: 2;
     }
   }
 `;

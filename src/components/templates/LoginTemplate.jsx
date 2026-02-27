@@ -5,6 +5,7 @@ import { Btnsave } from "../moleculas/Btnsave";
 import { Linea } from "../atomos/Linea";
 import { v } from "../../styles/variables";
 import { Device } from "../../styles/breakpoinst";
+import { Footer } from "../organismos/Footer";
 
 export function LoginTemplate() {
   return (
@@ -41,6 +42,7 @@ export function LoginTemplate() {
           <br />
           <Btnsave titulo="Google" bgcolor="#fff" icono={<v.iconogoogle />} />
         </div>
+        <Footer />
       </section>
     </Container>
   );
@@ -52,6 +54,8 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
+  flex-direction: column;
+  margin: 20px;
   .contentCard {
     height: 100%;
     width: 100%;

@@ -4,13 +4,14 @@ import { InputText2 } from "../organismos/formularios/InputText2";
 import { Btnsave } from "../moleculas/Btnsave";
 import { Linea } from "../atomos/Linea";
 import { v } from "../../styles/variables";
+import { Device } from "../../styles/breakpoinst";
 
 export function LoginTemplate() {
   return (
     <Container>
       <section className="contentCard">
         <div className="card">
-          <Title>Login:</Title>
+          <Title $paddingbottom="20px">Login</Title>
           <form action="">
             <InputText2>
               <input
@@ -37,6 +38,7 @@ export function LoginTemplate() {
             ></Btnsave>
           </form>
           <Linea>O</Linea>
+          <br />
           <Btnsave titulo="Google" bgcolor="#fff" icono={<v.iconogoogle />} />
         </div>
       </section>
@@ -49,4 +51,23 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  .contentCard {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    .card {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+      width: 100%;
+      @media ${Device.tablet} {
+        width: 400px;
+      }
+    }
+  }
 `;

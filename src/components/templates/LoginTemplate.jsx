@@ -6,8 +6,10 @@ import { Linea } from "../atomos/Linea";
 import { v } from "../../styles/variables";
 import { Device } from "../../styles/breakpoinst";
 import { Footer } from "../organismos/Footer";
+import { useAuthStore } from "../../store/AuthStore";
 
 export function LoginTemplate() {
+  const { loginGoogle } = useAuthStore();
   return (
     <Container>
       <section className="contentCard">
@@ -40,7 +42,12 @@ export function LoginTemplate() {
           </form>
           <Linea>O</Linea>
           <br />
-          <Btnsave titulo="Google" bgcolor="#fff" icono={<v.iconogoogle />} />
+          <Btnsave
+            function={loginGoogle}
+            titulo="Google"
+            bgcolor="#fff"
+            icono={<v.iconogoogle />}
+          />
         </div>
         <Footer />
       </section>

@@ -43,7 +43,7 @@ export function LoginTemplate() {
           <Linea>O</Linea>
           <br />
           <Btnsave
-            function={loginGoogle}
+            funcion={loginGoogle}
             titulo="Google"
             bgcolor="#fff"
             icono={<v.iconogoogle />}

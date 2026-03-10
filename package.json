@@ -16,7 +16,6 @@
     "react-icons": "^5.5.0",
     "react-router-dom": "^7.13.1",
     "styled-components": "^6.3.11",
-    "typescript": "^5.9.3",
     "zustand": "^5.0.11"
   },
   "devDependencies": {

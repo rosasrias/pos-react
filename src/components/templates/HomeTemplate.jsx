@@ -9,9 +9,7 @@ export function HomeTemplate() {
   return (
     <Container>
       <span> Home Template</span>
-      <button type="submit" onClick={cerrarSesion}>
-        Cerrar
-      </button>
+      <button onClick={cerrarSesion}>Cerrar</button>
     </Container>
   );
 }

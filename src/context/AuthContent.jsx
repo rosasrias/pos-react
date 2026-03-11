@@ -4,21 +4,31 @@ import { supabase } from "../supabase/supabase.config";
 const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
-  const [user, setUser] = useState([]);
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
-    const { data } = supabase.auth.onAuthStateChange(async (session) => {
-      if (session?.user == null) {
-        setUser(null);
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((event, session) => {
+      if (session?.user) {
+        setUser(session.user);
       } else {
-        setUser(session?.user);
+        setUser(null);
       }
+
+      setLoading(false);
     });
+
     return () => {
-      data.subscription;
+      subscription.unsubscribe();
     };
   }, []);
+
   return (
-    <AuthContext.Provider value={{ user }}>{children}</AuthContext.Provider>
+    <AuthContext.Provider value={{ user, loading }}>
+      {children}
+    </AuthContext.Provider>
   );
 };
 

@@ -6,15 +6,19 @@ import { Device } from "./styles/breakpoinst";
 import { useThemeStore } from "./store/ThemeStore";
 import { useState } from "react";
 import { AuthContextProvider } from "./context/AuthContent";
+import { useLocation } from "react-router-dom";
+import { Login } from "./pages/Login";
 
 function App() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const { themeStyle } = useThemeStore();
+  const {pathname} = useLocation();
   return (
     <ThemeProvider theme={themeStyle}>
       <AuthContextProvider>
-        <Container className={sidebarOpen ? "active" : ""}>
-          <GlobalStyles />
+        <GlobalStyles />
+        {
+          pathname != "/login"?( <Container className={sidebarOpen ? "active" : ""}>
           <section className="contentSidebar">
             <Sidebar
               state={sidebarOpen}
@@ -25,7 +29,9 @@ function App() {
           <section className="contentRouters">
             <MyRoutes />
           </section>
-        </Container>
+        </Container>):(<Login/>)
+        }
+       
       </AuthContextProvider>
     </ThemeProvider>
   );

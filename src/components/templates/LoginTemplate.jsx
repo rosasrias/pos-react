@@ -14,6 +14,10 @@ export function LoginTemplate() {
     <Container>
       <section className="contentCard">
         <div className="card">
+          <ContentLogo>
+            <img src={v.logo} alt="logo" />
+            <span>BODEGA NOELIA</span>
+          </ContentLogo>
           <Title $paddingbottom="20px">Login</Title>
           <form action="">
             <InputText2>
@@ -80,5 +84,18 @@ const Container = styled.div`
         width: 400px;
       }
     }
+  }
+`;
+
+const ContentLogo = styled.section`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+  span {
+    font-weight: 700;
+  }
+  img {
+    width: 10%;
   }
 `;
